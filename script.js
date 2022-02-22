@@ -62,3 +62,10 @@ const max = function (big, small) {
   console.log(check);
 };
 max(2, 3);
+
+const checkSpeed = function (speed) {
+  const point = Math.floor((speed - 70) / 5);
+  if (point < 12) console.log(point);
+  else console.log('Guvohnoma olib qoyiladi');
+};
+checkSpeed(135);
