@@ -50,3 +50,15 @@ const func = function (...numbers) {
   console.log(`Devided: ${devided} ,not Devided: ${notDevided}`);
 };
 func(1, 2, 3, 4, 5);
+
+const reverse = function (...numbs) {
+  const reversed = numbs.reverse();
+  console.log(reversed);
+};
+reverse(1, 2, 3, 4, 5);
+
+const max = function (big, small) {
+  const check = big > small ? big : small;
+  console.log(check);
+};
+max(2, 3);
