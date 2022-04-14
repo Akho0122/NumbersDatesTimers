@@ -30,66 +30,85 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// const minMax = function (...numbs) {
-//   const min = Math.min(...numbs);
-//   const max = Math.max(...numbs);
-//   console.log(`Min: ${min}, Max: ${max}`);
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const header = document.querySelector('.header');
+
+btnScrollTo.addEventListener('click', function () {
+  const s1coords = section1.getBoundingClientRect();
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+// btnScrollTo.addEventListener('click', function (e) {
+//   const s1coords = section1.getBoundingClientRect();
+// });
+
+// //////////////////////////
+// /////////////////////////
+// /////////////////////////
+// const sections = document.querySelectorAll('.section');
+// document.getElementById('section--1');
+// document.getElementsByClassName('btn');
+// const allButtons = document.getElementsByTagName('button');
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// // message.textContent = 'We use cookied for improved functionality and analitics';
+// message.innerHTML =
+//   'We use cookied for improved functionality and analitics.<button class="btn btn--close-cookie">Got It!</button>';
+// // header.prepend(message);
+// header.append(message);
+// // header.append(message.cloneNode(true));
+
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
+//   });
+
+// message.style.backgroundColor = '#37383d';
+// message.style.padding = '1rem';
+// message.style.width = '120%';
+// console.log(getComputedStyle(message).color);
+// message.style.height =
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 40 + 'px';
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// const h1 = document.querySelector('h1');
+// h1.addEventListener('mouseenter', function (e) {
+//   alert('addEventListener: Great!');
+// });
+// h1.onmouseenter = function (e) {
+//   alert('addEventListener: Great!');
 // };
-// minMax(1, 2, 3, 4, 5);
 
-// const func = function (...numbers) {
-//   const devided = [];
-//   const notDevided = [];
-//   for (let i = 0; i <= numbers.length; i++) {
-//     if (numbers[i] % 2 === 0) {
-//       devided.push(numbers[i]);
-//     } else {
-//       notDevided.push(numbers[i]);
-//     }
-//   }
-//   console.log(`Devided: ${devided} ,not Devided: ${notDevided}`);
+// const h1 = document.querySelector('h1');
+// const alertH1 = function (e) {
+//   alert('addEventListener: Great!');
 // };
-// func(1, 2, 3, 4, 5);
+// h1.addEventListener('mouseenter', alertH1);
+// setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
-// const reverse = function (...numbs) {
-//   const reversed = numbs.reverse();
-//   console.log(reversed);
-// };
-// reverse(1, 2, 3, 4, 5);
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
 
-// const max = function (big, small) {
-//   const check = big > small ? big : small;
-//   console.log(check);
-// };
-// max(2, 3);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
 
-// const checkSpeed = function (speed) {
-//   const point = Math.floor((speed - 70) / 5);
-//   if (point < 12) console.log(point);
-//   else console.log('Guvohnoma olib qoyiladi');
-// };
-// checkSpeed(135);
-
-const sum = function (limit) {
-  let sumAll = 0;
-  for (let i = 0; i <= limit; i++) {
-    if (i % 3 === 0 || i % 5 === 0) sumAll += i;
-  }
-  return sumAll;
-};
-console.log(sum(10));
-
-let car = {
-  model: 'Toyota',
-  make: 'Estima',
-  year: 2016,
-  price: 5000,
-};
-const showProp = function (obj) {
-  for (const i of Object.values(obj)) {
-    if (typeof i === 'string') {
-      console.log(i);
-    }
-  }
-};
-showProp(car);
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+});
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+});
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+});
